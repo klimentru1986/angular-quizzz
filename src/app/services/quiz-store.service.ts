@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { QUIZ } from '../const/quiz.const';
 import { Question } from '../models/question';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Answer } from '../models/answer';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class QuizStoreService {
   private activeQuestion$: BehaviorSubject<Question> = new BehaviorSubject(
     QUIZ[0]
   );
-  private answers$: BehaviorSubject<Question[]> = new BehaviorSubject([]);
+  private score$: BehaviorSubject<number> = new BehaviorSubject(0);
   private error$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor() {}
@@ -20,15 +21,23 @@ export class QuizStoreService {
     return this.activeQuestion$;
   }
 
+  getScore(): Observable<number> {
+    return this.score$;
+  }
+
   getError(): Observable<boolean> {
     return this.error$;
   }
 
-  addAnswer(answer) {
+  addAnswer(answer: Answer): void {
     if (answer.value === 'React') {
       this.error$.next(true);
     }
-    this.answers$.next([...this.answers$.value, answer]);
+
+    if (answer.correct) {
+      this.score$.next(this.score$.value + 1);
+    }
+
     this.nextQuestion();
   }
 

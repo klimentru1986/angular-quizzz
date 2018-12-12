@@ -28,7 +28,7 @@ export const QUIZ: Question[] = [
       },
       {
         value: 'Angular',
-        correct: false
+        correct: true
       },
       {
         value: 'Vue',
@@ -41,7 +41,7 @@ export const QUIZ: Question[] = [
     answers: [
       {
         value: 'NgRx',
-        correct: false
+        correct: true
       },
       {
         value: 'NgXs',

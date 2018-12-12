@@ -13,12 +13,14 @@ import { Answer } from './models/answer';
 export class AppComponent implements OnInit {
   title = 'angular-quizzz';
   question$: Observable<Question>;
+  score$: Observable<number>;
   error$: Observable<boolean>;
 
   constructor(private quizService: QuizStoreService) {}
 
   ngOnInit() {
     this.question$ = this.quizService.getActiveQuestion();
+    this.score$ = this.quizService.getScore();
     this.error$ = this.quizService.getError();
   }
 
