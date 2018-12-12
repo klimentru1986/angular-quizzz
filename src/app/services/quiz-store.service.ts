@@ -1,25 +1,23 @@
 import { Injectable } from '@angular/core';
 import { QUIZ } from '../const/quiz.const';
 import { Question } from '../models/question';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizStoreService {
-  private readonly quiz = QUIZ;
-  private currentQuestionId;
+  private currentQuestionId = 0;
+  private activeQuestion$ = new BehaviorSubject(QUIZ[0]);
 
   constructor() {}
 
-  getNextQuestion(): Question {
-    if (this.currentQuestionId === undefined) {
-      this.currentQuestionId = 0;
-    }
+  getActiveQuestion(): Observable<Question> {
+    return this.activeQuestion$;
+  }
 
+  nextQuestion(): void {
     this.currentQuestionId = this.currentQuestionId + 1;
-
-    return this.quiz[this.currentQuestionId]
-      ? this.quiz[this.currentQuestionId]
-      : null;
+    this.activeQuestion$.next(QUIZ[this.currentQuestionId]);
   }
 }

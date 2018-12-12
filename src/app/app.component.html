@@ -1,9 +1,18 @@
 <div class="container with-title main">
-  <h2 class="title">QUIZZZ</h2>
+  <h2 class="title"><i class="nes-logo"></i>
+    QUIZZZ
+    <i class="nes-logo"></i></h2>
 
-  <a class="github-link" href="https://github.com/BcRikko/NES.css" target="_blank">
+  <a
+    class="github-link"
+    href="https://github.com/BcRikko/NES.css"
+    target="_blank"
+  >
     <p class="balloon from-right">Good luck!</p>
     <i class="octocat animate"></i>
   </a>
-  
+
+  <div class="question-container" *ngIf="(question$ | async) as question">
+    <div class="question">{{ question.value }}</div>
+  </div>
 </div>

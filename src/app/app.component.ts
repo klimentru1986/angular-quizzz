@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizStoreService } from './services/quiz-store.service';
 import { Question } from './models/question';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,11 @@ import { Question } from './models/question';
 })
 export class AppComponent implements OnInit {
   title = 'angular-quizzz';
-  question: Question;
+  question$: Observable<Question>;
 
   constructor(private quizService: QuizStoreService) {}
 
   ngOnInit() {
-    this.question = this.quizService.getNextQuestion();
+    this.question$ = this.quizService.getActiveQuestion();
   }
 }

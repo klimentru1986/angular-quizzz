@@ -3,7 +3,7 @@ import { Question } from '../models/question';
 
 export const QUIZ: Question[] = [
   {
-    value: 'language',
+    value: 'select language',
     answers: [
       {
         value: 'typeScript',
@@ -20,7 +20,7 @@ export const QUIZ: Question[] = [
     ]
   },
   {
-    value: 'framework',
+    value: 'select framework',
     answers: [
       {
         value: 'React',
@@ -37,7 +37,7 @@ export const QUIZ: Question[] = [
     ]
   },
   {
-    value: 'state management',
+    value: 'select state management',
     answers: [
       {
         value: 'NgRx',
