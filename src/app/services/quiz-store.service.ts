@@ -12,6 +12,7 @@ export class QuizStoreService {
     QUIZ[0]
   );
   private answers$: BehaviorSubject<Question[]> = new BehaviorSubject([]);
+  private error$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor() {}
 
@@ -19,7 +20,14 @@ export class QuizStoreService {
     return this.activeQuestion$;
   }
 
+  getError(): Observable<boolean> {
+    return this.error$;
+  }
+
   addAnswer(answer) {
+    if (answer.value === 'React') {
+      this.error$.next(true);
+    }
     this.answers$.next([...this.answers$.value, answer]);
     this.nextQuestion();
   }

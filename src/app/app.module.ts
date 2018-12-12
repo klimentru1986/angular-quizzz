@@ -3,16 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AnswerComponent } from './components/answer/answer.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AnswerComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent, AnswerComponent, ErrorComponent],
+  imports: [BrowserModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
