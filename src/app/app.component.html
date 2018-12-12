@@ -12,7 +12,10 @@
     <i class="octocat animate"></i>
   </a>
 
-  <div class="question-container" *ngIf="(question$ | async) as question">
+  <div
+    class="question-container"
+    *ngIf="(question$ | async) as question; else: finish"
+  >
     <div class="question">{{ question.value }}</div>
 
     <div class="answer-container">
@@ -25,6 +28,10 @@
 
     <div class="score">Score: {{ score$ | async }}</div>
   </div>
+
+  <ng-template #finish>
+    <app-finish [score]="score$ | async"></app-finish>
+  </ng-template>
 </div>
 
 <app-error *ngIf="(error$ | async)"></app-error>

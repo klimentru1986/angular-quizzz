@@ -1,0 +1,22 @@
+:host {
+  align-self: center;
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.star {
+  margin: 0 10px;
+}
+
+.fin {
+  font-size: 26px;
+  margin: 10px;
+}
+
+.fin-score {
+  margin: 10px;
+}

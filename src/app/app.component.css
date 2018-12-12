@@ -51,6 +51,7 @@
   padding-top: 30px;
   padding-left: 20px;
   text-transform: uppercase;
+  min-height: 100px;
 }
 
 .answer-container {
