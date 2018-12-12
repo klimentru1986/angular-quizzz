@@ -1,7 +1,7 @@
 <div class="container with-title main">
-  <h2 class="title"><i class="nes-logo"></i>
-    QUIZZZ
-    <i class="nes-logo"></i></h2>
+  <h2 class="title">
+    <i class="nes-logo"></i> {{ title }} <i class="nes-logo"></i>
+  </h2>
 
   <a
     class="github-link"
@@ -14,5 +14,13 @@
 
   <div class="question-container" *ngIf="(question$ | async) as question">
     <div class="question">{{ question.value }}</div>
+
+    <div class="answer-container">
+      <app-answer
+        *ngFor="let answer of question.answers"
+        [answer]="answer"
+        (click)="addAnswer(answer)"
+      ></app-answer>
+    </div>
   </div>
 </div>
