@@ -11,3 +11,7 @@
   font-size: 10px;
   z-index: 99999;
 }
+
+pre {
+  overflow: hidden;
+}
