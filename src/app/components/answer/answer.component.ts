@@ -17,11 +17,11 @@ export class AnswerComponent implements OnInit {
   answer: Answer;
 
   btnClass: string;
-  private btnTypes = ['is-primary', 'is-success', 'is-warning'];
+  private btnTypes = ['is-primary', 'is-success', 'is-warning', 'is-error'];
 
   constructor() {}
 
   ngOnInit() {
-    this.btnClass = this.btnTypes[Math.floor(Math.random() * 3)];
+    this.btnClass = this.btnTypes[Math.floor(Math.random() * 4)];
   }
 }
