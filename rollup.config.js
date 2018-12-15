@@ -7,12 +7,12 @@ import babel from 'rollup-plugin-babel';
 import { uglify } from 'rollup-plugin-uglify';
 
 export default {
-  input: `./out-tsc/app/app/app.module.js`,
+  input: `./out-tsc/app/src/app/ivy-app.module.js`,
   output: {
     name: 'hw',
-    file: `dist/bundle.js`,
+    file: `ivy-dist/bundle.js`,
     format: 'iife',
-    sourcemap: false
+    sourcemap: true
   },
   plugins: [
     paths(pathMapping()),
@@ -23,6 +23,7 @@ export default {
     commonjs(),
     buildOptimizer(),
     uglify({
+      sourcemap: true,
       mangle: true,
       compress: {
         global_defs: {
